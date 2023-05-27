@@ -17,6 +17,12 @@ const skills = [
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const vars = {
+  skillColor: 'navy',
+  fontWeight: 'bold',
+  textCase: 'uppercase'
+}
 ---
 
 <BaseLayout title={pageTitle}>
@@ -48,7 +54,7 @@ const goal = 3;
     </ul>
     <p>Mis habilidades:</p>
     <ul>
-      {skills.map(skill => <li>{skill}</li>)}
+      {skills.map(skill => <li class="skill">{skill}</li>)}
     </ul>
   </section>
   <section>
@@ -59,3 +65,16 @@ const goal = 3;
     {goal === 3 ? <p>Mi objetivo es terminar en 3 días.</p> : <p>Mi objetivo no son 3 días.</p>}
   </section>
 </BaseLayout>
+
+<style define:vars={vars}>
+  h1 {
+    color: purple;
+    font-size: 4rem;
+  }
+
+  .skill {
+    color: var(--skillColor);
+    font-weight: var(--fontWeight);
+    text-transform: var(--textCase);
+  }
+</style>
