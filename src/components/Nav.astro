@@ -1,0 +1,23 @@
+---
+const routes = [
+  {
+    label: 'Inicio',
+    path: '/'
+  },
+  {
+    label: 'Sobre mi',
+    path: '/about'
+  },
+  {
+    label: 'Blog',
+    path: '/blog'
+  },
+]
+---
+<nav>
+  <ul>
+    {routes.map(route => (
+      <li><a href={route.path}>{route.label}</a></li>
+    ))}
+  </ul>
+</nav>
