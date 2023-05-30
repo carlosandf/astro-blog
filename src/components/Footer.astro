@@ -1,12 +1,39 @@
 ---
-const platform = "github";
-const username = "carlosandf";
+import Social from "./Social.astro";
+
+const social = [
+  {
+    platform: "github",
+    username: "carlosandf",
+  },
+  {
+    platform: "twitter",
+    username: "andresfont12",
+  },
+  {
+    platform: "instagram",
+    username: "carlos_flrz",
+  },
+];
 ---
 
 <footer>
-  <p>
-    Más información sobre mis proyectos en
-    <a href={`https://www.${platform}.com/${username}`}>
-      {platform}</a>!
-  </p>
+  <section class="socialMedia">
+    {
+      social.map(({ platform, username }) => (
+        <div>
+          <Social platform={platform} username={username}>
+            {platform}
+          </Social>
+        </div>
+      ))
+    }
+  </section>
 </footer>
+
+<style>
+  .socialMedia {
+    display: flex;
+    gap: 2rem;
+  }
+</style>
